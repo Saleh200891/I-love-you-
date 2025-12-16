@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أحبك يا أميرتي ❤️</title>
+    <!-- تحسين ظهور الموقع عند المشاركة -->
+    <meta property="og:title" content="Saleh | s2o08">
+    <meta property="og:description" content="كلام من قلبي لأغلى وأحب إنسانة في حياتي">
+    <meta property="og:image" content="iiiii.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com">
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            --bg1: #0f0c29;
+            --bg2: #302b63;
+            --bg3: #24243e;
+            --gold: #f5c97b;
+            --pink: #ff5ea8;
+            --white: #fff;
+            --glass: rgba(255, 255, 255, .14);
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg3));
+        }
+        /* قلوب متحركة */
+        
+        .hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0
+        }
+        
+        .hearts span {
+            position: absolute;
+            bottom: -50px;
+            animation: float 12s linear infinite;
+            opacity: .6
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(.8);
+                opacity: 0
+            }
+            10% {
+                opacity: .6
+            }
+            100% {
+                transform: translateY(-120vh) scale(1.4);
+                opacity: 0
+            }
+        }
+        
+        header {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 90px 20px 30px
+        }
+        
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            margin: 0;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--gold), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-height: 1.3em;
+        }
+        
+        header p {
+            opacity: .9;
+            margin-top: 14px
+        }
+        /* مشغل الأغنية (تشغيل تلقائي صامت بسبب سياسات المتصفح) */
+        
+        .music {
+            max-width: 560px;
+            margin: 24px auto 8px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .5)
+        }
+        /* أزرار المشاركة */
+        
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 14px 0 6px
+        }
+        
+        .btn {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, .25);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+            transition: .3s ease
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px) scale(1.04)
+        }
+        
+        main {
+            position: relative;
+            z-index: 2;
+            width: min(1200px, 92%);
+            margin: auto
+        }
+        /* السلايدر */
+        
+        .slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 26px 10px
+        }
+        
+        .slider::-webkit-scrollbar {
+            display: none
+        }
+        
+        .card {
+            min-width: 240px;
+            scroll-snap-align: center;
+            background: var(--glass);
+            backdrop-filter: blur(14px);
+            border-radius: 24px;
+            padding: 26px 18px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, .2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+            transition: .4s ease
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.05)
+        }
+        
+        .love {
+            font-size: 1.35rem;
+            font-weight: 600
+        }
+        
+        .lang {
+            margin-top: 10px;
+            font-size: .85rem;
+            opacity: .75
+        }
+        /* العدادات */
+        
+        .counters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 10px 0 24px
+        }
+        
+        .counter {
+            background: var(--glass);
+            backdrop-filter: blur(14px);
+            border-radius: 22px;
+            padding: 18px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, .2);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, .35)
+        }
+        
+        .counter h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem
+        }
+        
+        .counter .num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--gold)
+        }
+        
+        .counter p {
+            opacity: .85;
+            margin: 8px 0 0
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px 60px;
+            opacity: .8
+        }
+        
+        footer span {
+            color: var(--pink)
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- قلوب -->
+    <div class="hearts">
+        <span style="left:5%;animation-delay:0s">❤</span>
+        <span style="left:20%;animation-delay:2s">💖</span>
+        <span style="left:40%;animation-delay:4s">❤</span>
+        <span style="left:60%;animation-delay:1s">💗</span>
+        <span style="left:75%;animation-delay:3s">❤</span>
+        <span style="left:90%;animation-delay:5s">💞</span>
+    </div>
+
+    <header>
+        <!-- عنوان بتأثير كتابة -->
+        <h1 id="type"></h1>
+        <p>كلمة واحدة… ملايين المشاعر ❤️</p>
+
+        <!-- أغنية Billie Eilish - I Love You (تشغيل تلقائي صامت) -->
+        <div class="music">
+            <iframe width="100%" height="315" src="VID_20251216_054522_567.mp4" title="Billie Eilish - I Love You" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+
+        <main>
+            <!-- عدادات الحب -->
+            <section class="counters">
+                <div class="counter">
+                    <h3>عدد أيام حبنا ⏳</h3>
+                    <div class="num" id="daysLove">∞</div>
+                    <p>حب لا نهائي وما له نهاية</p>
+                </div>
+                <div class="counter">
+                    <h3>الوقت المتبقي لنهاية السنة</h3>
+                    <div class="num" id="countdown">--</div>
+                    <p id="yearText"></p>
+                </div>
+            </section>
+
+            <!-- سلايدر اللغات -->
+            <section class="slider">
+                <div class="card">
+                    <div class="love">أحبك</div>
+                    <div class="lang">Arabic</div>
+                </div>
+                <div class="card">
+                    <div class="love">أحبج</div>
+                    <div class="lang">Arabic</div>
+                </div>
+                <div class="card">
+                    <div class="love">بحبك</div>
+                    <div class="lang">Arabic</div>
+                </div>
+                <div class="card">
+                    <div class="love">لافيو</div>
+                    <div class="lang">Arabic</div>
+                </div>
+                <div class="card">
+                    <div class="love">احبش</div>
+                    <div class="lang">Arabic</div>
+                </div>
+                <div class="card">
+                    <div class="love">I love you</div>
+                    <div class="lang">English</div>
+                </div>
+                <div class="card">
+                    <div class="love">Je t’aime</div>
+                    <div class="lang">French</div>
+                </div>
+                <div class="card">
+                    <div class="love">Te amo</div>
+                    <div class="lang">Spanish</div>
+                </div>
+                <div class="card">
+                    <div class="love">Ti amo</div>
+                    <div class="lang">Italian</div>
+                </div>
+                <div class="card">
+                    <div class="love">Ich liebe dich</div>
+                    <div class="lang">German</div>
+                </div>
+                <div class="card">
+                    <div class="love">愛してる</div>
+                    <div class="lang">Japanese</div>
+                </div>
+                <div class="card">
+                    <div class="love">사랑해</div>
+                    <div class="lang">Korean</div>
+                </div>
+                <div class="card">
+                    <div class="love">我爱你</div>
+                    <div class="lang">Chinese</div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>يا أميرتي… <span>حضني إليك</span> وقلبي إليك وحياتي إليك، ومعك بكل مرة قبل الحلو، وكل شيء أنا معك فيه. سنة تخلص وسنة جديدة نبدأها سوا وأنا أحبك أكثر.
+            </p>
+            <p>وانا احبك مثل اختي يا أميرتي</p>
+        </footer>
+
+        <script>
+            /* تأثير الكتابة */
+            const text = 'أحبك يا أميرتي ❤️';
+            let i = 0;
+            const el = document.getElementById('type');
+            (function type() {
+                if (i <= text.length) {
+                    el.textContent = text.slice(0, i++);
+                    setTimeout(type, 90);
+                }
+            })();
+
+            /* مشاركة */
+            function shareWhats() {
+                const msg = encodeURIComponent('أحبك يا أميرتي ❤️\nشوفي هالصفحة الرومانسية');
+                window.open('https://wa.me/?text=' + msg, '_blank');
+            }
+
+            function shareInsta() {
+                alert('انسخي الرابط وشاركيه على الستوري 💕');
+            }
+
+            /* عداد نهاية السنة */
+            function updateCountdown() {
+                const now = new Date();
+                const end = new Date(now.getFullYear(), 11, 31, 23, 59, 59);
+                const diff = end - now;
+                if (diff <= 0) {
+                    document.getElementById('countdown').textContent = '00:00:00';
+                    document.getElementById('yearText').textContent = 'بدأت سنة جديدة وأنا معك يا أميرتي ❤️';
+                    return;
+                }
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor(diff % 86400000 / 3600000);
+                const m = Math.floor(diff % 3600000 / 60000);
+                const s = Math.floor(diff % 60000 / 1000);
+                document.getElementById('countdown').textContent = `${d}ي ${h}س ${m}د ${s}ث`;
+                document.getElementById('yearText').textContent = 'ما ضل وقت يا أميرتي… وبسنة جديدة أكون معك وأساعدك وأحبك أكثر';
+            }
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        </script>
+</body>
+
+</html>
